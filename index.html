@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Minimalist Webcam Photobooth</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Main Container: Holds the camera view and the photo strip -->
+  <div class="photobooth">
+    
+    <!-- Main View: Camera controls and preview -->
+    <div class="main-view">
+      
+      <!-- Filter Controls: Buttons to toggle different visual effects -->
+      <div class="controls">
+        <div class="filter-buttons">
+          <button class="filter-btn active" onClick="changeFilter('none', this)">None</button>
+          <button class="filter-btn" onClick="changeFilter('grayscale', this)">B&W</button>
+          <button class="filter-btn" onClick="changeFilter('sepia', this)">Sepia</button>
+          <button class="filter-btn" onClick="changeFilter('invert', this)">Invert</button>
+          <button class="filter-btn" onClick="changeFilter('redEffect', this)">Red</button>
+          <button class="filter-btn" onClick="changeFilter('rgbSplit', this)">RGB Split</button>
+          <button class="filter-btn" onClick="changeFilter('cyber', this)">Cyber</button>
+          <button class="filter-btn" onClick="changeFilter('solarize', this)">Solarize</button>
+        </div>
+      </div>
+
+      <!-- Preview Area: Where the live video/canvas is displayed -->
+      <div class="preview-area">
+        <canvas class="photo"></canvas>
+      </div>
+
+      <!-- Action Bar: Main interactive buttons (Take Photo, Download, Clear) -->
+      <div class="action-bar">
+        <button class="take-photo" onClick="takePhoto()">Take Photo</button>
+        <button class="download-zip" onClick="downloadZip()">Download ZIP</button>
+        <button class="clear-all" onClick="clearStrip()">Clear All</button>
+      </div>
+    </div>
+    
+    <!-- Photo Strip: Where captured photos appear as thumbnails -->
+    <div class="strip"></div>
+  </div>
+
+  <!-- Audio element for the shutter sound (hidden from view) -->
+  <audio class="snap" src="./snap.mp3" hidden></audio>
+
+  <!-- External Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  
+  <!-- Main Application Logic -->
+  <script src="scripts.js"></script>
+
+</body>
+</html>
